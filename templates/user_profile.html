@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block page_title %}{{ user.first_name }} {{ user.last_name }}{% endblock %}
+{% block content %}
+    <table>
+    <tr>
+        <th>Name:</th><th>Content</th><th>Twitted:</th>
+    </tr>
+        {% for tweet in tweets%}
+            <tr>
+                <td><a href="../user_profile/{{ tweet.user.id }}">{{ tweet.user.first_name}} {{ tweet.user.last_name}} </a> </td>
+                <td> : <a href="../message_info/{{ tweet.id }}"> {{ tweet.content }} </td>
+                <td>- {{ tweet.creation_date }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+{% endblock content %}

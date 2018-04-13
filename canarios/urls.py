@@ -15,7 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from twitter.views import BaseView, NewTweetView, UserProfileView, MessageInfoView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r'^$', BaseView.as_view(), name='base'),
+    url(r'^new_tweet', NewTweetView.as_view(), name='new_tweet'),
+    url(r'^user_profile/(?P<user_id>(\d+))$', UserProfileView.as_view(), name='user_profile'),
+    url(r'^message_info/(?P<message_id>(\d+))$', MessageInfoView.as_view(), name='message_info')
 ]

@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block page_title %}New Tweet{% endblock %}
+{% block content %}
+    <a href="../user_profile/{{ tweet.user.id }}">{{ tweet.user.first_name}} {{ tweet.user.last_name}} </a>
+    -<a href="../message_info/{{ tweet.id }}"> {{ tweet.content }}</a> - {{ tweet.creation_date }}
+{% endblock content %}
